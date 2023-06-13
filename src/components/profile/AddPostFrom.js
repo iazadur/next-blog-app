@@ -14,7 +14,7 @@ export default function AddPostFrom({ id }) {
     }
     const validationSchema = Yup.object({
         title: Yup.string().required('Post must have a title!'),
-        body: Yup.string().required('Please provide post body!'),
+        body: Yup.string().min(100).required('Please provide post body!'),
     })
     const onSubmit = (values, { resetForm }) => {
         addPost({ ...values, author: user?._id })
@@ -36,7 +36,6 @@ export default function AddPostFrom({ id }) {
                             <input type='text' {...field} placeholder="title" />
                         )}
                     </Field>
-                    
                     <ErrorMessage name='title' />
                     <Field name="body">
                         {({ field, form }) => (
