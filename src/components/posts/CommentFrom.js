@@ -27,10 +27,10 @@ export default function CommentFrom({ id }) {
                 validationSchema={validationSchema}
                 onSubmit={onSubmit}
             >
-                <Form style={{ display: "flex", flexDirection: "column", gap: "10px", width: '400px', margin: '0 auto' }}>
-                    
+                <Form style={{ display: "flex", flexDirection: "column", gap: "10px", maxWidth: '400px', }}>
+
                     <h3 className="mb-4 text-xl font-bold text-gray-700">Add Comment</h3>
-                    <Field  name="comment">
+                    <Field name="comment">
                         {({ field, form }) => (
                             <textarea {...field} placeholder="Comment" />
                         )}

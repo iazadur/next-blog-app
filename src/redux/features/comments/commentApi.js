@@ -8,12 +8,12 @@ export const commentApi = apiSlice.injectEndpoints({
         getAnComment: builder.query({
             query: (id) => `${url}/${id}`,
             keepUnusedDataFor: 600,
-            providesTags: ["Comment"],
+            providesTags: ["Comments"],
         }),
         getAllComment: builder.query({
             query: () => url,
             keepUnusedDataFor: 600,
-            providesTags: ["Comment"],
+            providesTags: ["Comments"],
         }),
 
         addComment: builder.mutation({
@@ -22,7 +22,7 @@ export const commentApi = apiSlice.injectEndpoints({
                 method: "POST",
                 body: data,
             }),
-            invalidatesTags: ["Comment"],
+            invalidatesTags: ["Comments", "Posts"],
             async onQueryStarted(arg, { queryFulfilled, dispatch }) {
                 try {
                     const result = await queryFulfilled;
@@ -45,7 +45,7 @@ export const commentApi = apiSlice.injectEndpoints({
                 method: "PATCH",
                 body: data,
             }),
-            invalidatesTags: ["Comment"],
+            invalidatesTags: ["Comments"],
             async onQueryStarted(arg, { queryFulfilled, dispatch }) {
                 try {
                     const result = await queryFulfilled;
@@ -68,7 +68,7 @@ export const commentApi = apiSlice.injectEndpoints({
                 method: "DELETE",
 
             }),
-            invalidatesTags: ["Comment"],
+            invalidatesTags: ["Comments", "Posts"],
 
         }),
 

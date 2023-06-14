@@ -11,7 +11,7 @@ export const postApi = apiSlice.injectEndpoints({
             providesTags: ["Posts"],
         }),
         getAllPosts: builder.query({
-            query: () => url,
+            query: (userId) => `${url}?userId=${userId}`,
             keepUnusedDataFor: 600,
             providesTags: ["Posts"],
         }),
@@ -43,11 +43,11 @@ export const postApi = apiSlice.injectEndpoints({
 
         updatePost: builder.mutation({
             query: (data) => ({
-                url,
-                method: "PUT",
+                url: `${url}/${data?._id}`,
+                method: "PATCH",
                 body: data,
             }),
-            invalidatesTags: ["Post"],
+            invalidatesTags: ["Posts"],
             async onQueryStarted(arg, { queryFulfilled, dispatch }) {
                 try {
                     const result = await queryFulfilled;
@@ -70,7 +70,7 @@ export const postApi = apiSlice.injectEndpoints({
                 method: "DELETE",
 
             }),
-            invalidatesTags: ["Post"],
+            invalidatesTags: ["Posts"],
 
         }),
 

@@ -17,7 +17,7 @@ export default function Nav() {
             <div className="flex flex-col container mx-auto md:flex-row md:items-center md:justify-between">
                 <div className="flex justify-between items-center">
                     <div>
-                        <Link className="text-gray-800 text-xl font-bold md:text-2xl" href="#">Blog <span className="text-blue-500">APP</span></Link>
+                        <Link className="text-gray-800 text-xl font-bold md:text-2xl" href="/">Blog <span className="text-blue-500">APP</span></Link>
                     </div>
                     <div>
                         <button onClick={() => setIsOpen((val) => !val)} type="button" className="block text-gray-800 hover:text-gray-600 focus:text-gray-600 focus:outline-none md:hidden">
@@ -37,13 +37,13 @@ export default function Nav() {
                                 <Link className="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" href="/signup">Signup</Link>
                             </> : <>
                                 <Link className="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" href="/profile">profile</Link>
-                                    <button onClick={handleLogout} className="my-1 bg-black text-white rounded-md px-4 transition-all duration-300 ease-linear hover:bg-sky-700 py-1 font-semibold w-fit  md:mx-4 md:my-0">Logout</button>
+                                <button onClick={handleLogout} className="my-1 bg-black text-white rounded-md px-4 transition-all duration-300 ease-linear hover:bg-sky-700 py-1 font-semibold w-fit  md:mx-4 md:my-0">Logout</button>
 
-                    </>
+                            </>
                         }
+                    </div>
                 </div>
-            </div>
-        </div >
+            </div >
         </nav >
     )
 }

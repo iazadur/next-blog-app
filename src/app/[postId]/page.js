@@ -19,10 +19,10 @@ export default function PostDetail({ params }) {
     }
 
     if (!isLoading && !isError && data?.data?.post.title) {
-        content = <div className='container flex flex-col items-center'>
+        content = <div className='container flex flex-col min-h-[calc(100vh-110px)]'>
             <BlogPost post={data?.data?.post} />
             <CommentFrom id={data?.data?.post?._id} />
-            <AllComments id={data?.data?.post?._id} />
+            <AllComments comments={data?.data?.post?.comments} />
         </div>
     }
     return (

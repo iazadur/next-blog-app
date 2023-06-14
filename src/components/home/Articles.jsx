@@ -56,21 +56,21 @@ export default function Articles() {
     return (
         <>
             {
-                data?.data?.posts?.map((data, index) => (<div key={index} className="max-w-4xl mt-6 px-10 py-6 bg-white rounded-lg shadow-md">
+                data?.posts?.map((data, index) => (<div key={index} className="max-w-4xl mt-6 px-10 py-6 bg-white rounded-lg shadow-md">
                     <div className="flex justify-between items-center">
                         <span className="font-light text-gray-600">{moment().format("MMM D YYYY")}</span>
-                        <a className="px-2 py-1 bg-gray-600 text-gray-100 font-bold rounded hover:bg-gray-500" href="#">{data.body.slice(ran, ran +3)}</a>
+                        <a className="px-2 py-1 bg-gray-600 text-gray-100 font-bold rounded hover:bg-gray-500" href="#">{data.body.slice(ran, ran + 3)}</a>
                     </div>
                     <div className="mt-2">
-                     
+
                         <Link className="text-2xl text-gray-700 font-bold hover:underline" href={`/${data.id}`}>{data.title}</Link>
-                        <p className="mt-2 text-gray-600">{data.body}</p>
+                        <p className="mt-2 text-gray-600">{data.body.slice(0, 200)}...</p>
                     </div>
                     <div className="flex justify-between items-center mt-4">
                         <Link className="text-blue-500 hover:underline" href={`/${data.id}`}>Read more</Link>
                         <div>
                             <a className="flex items-center" href="#">
-                                <img className="mx-4 w-10 h-10 object-cover rounded-full hidden sm:block" src={data.author?.thumbnail} alt="avatar"/>
+                                <img className="mx-4 w-10 h-10 object-cover rounded-full hidden sm:block" src={data.author?.thumbnail} alt="avatar" />
                                 <h1 className="text-gray-700 font-bold hover:underline">{data.author?.username}</h1>
                             </a>
                         </div>
