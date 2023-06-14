@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { userLoggedOut } from "../auth/authSlice";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: process.env.BASE_URL || 'https://blog-svde.onrender.com/api/v1',
+  baseUrl: 'https://blog-svde.onrender.com/api/v1',
   prepareHeaders: (headers, { getState, endpoint }) => {
     const token = getState()?.auth.accessToken;
     if (token) {
@@ -11,7 +11,7 @@ const baseQuery = fetchBaseQuery({
     }
     return headers;
   },
-  
+
 });
 
 export const apiSlice = createApi({
@@ -25,7 +25,7 @@ export const apiSlice = createApi({
     }
     return result;
   },
-  tagTypes: ["Auth","Posts","Comments"],
+  tagTypes: ["Auth", "Posts", "Comments"],
 
   endpoints: (builder) => ({}),
 });
